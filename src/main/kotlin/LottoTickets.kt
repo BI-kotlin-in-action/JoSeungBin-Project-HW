@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import kotlin.random.Random
 
 class LottoTickets(num: Int, cost: Int) {
@@ -33,6 +34,16 @@ class LottoTickets(num: Int, cost: Int) {
             }
             numbers.sort()
             return numbers
+=======
+class LottoTickets(num: Int, cost: Int) {
+    public val ticketList = mutableListOf<List<Int>>()
+    public val ticketNum = num
+    public val cost = cost
+
+    fun printTicket() {
+        for(i in 0 until ticketNum){
+            println(ticketList[i])
+>>>>>>> b19235a (MENTORING-T-73 로또 프로그램 수정 #1.2)
         }
     }
 }
