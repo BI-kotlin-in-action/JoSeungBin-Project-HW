@@ -1,7 +1,20 @@
 ### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+build
+*.gradle
+gradle
+.gradle
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+gradlew
+build.gradle.kts
+gradle.properties
+gradlew.bat
+settings.gradle.kts
 
 ### Eclipse ###
 .apt_generated
@@ -27,3 +40,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+Lotto.iml
+
+.gitignore

@@ -1,13 +1,10 @@
+import view.inputCost
+
 fun main() {
-    println("금액을 입력하세요. ")
-
-    val cost = readln().toInt()
-    val lottoNum = cost / 1000
-
-    val tickets = LottoTickets(lottoNum, cost)
-    val winTickets = WinningTicket()
-    val buyTickets = BuyTickets()
-    buyTickets.createTickets(tickets)
+    val tickets = inputCost()
+    createTickets(tickets)
     tickets.printTicket()
+
+    val winTickets = WinningTicket()
     winTickets.calculateWinningTickets(tickets, winTickets)
 }
