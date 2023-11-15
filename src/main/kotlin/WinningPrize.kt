@@ -1,7 +1,14 @@
-enum class WinningPrize(val prize: Int) {
-    FIRST(100000),
-    SECOND(5000),
-    THIRD(100),
-    FOURTH(5),
-    NONE(0),
+enum class WinningPrize(val matchNum: Int, val prize: Int) {
+    FIRST(6, 100000),
+    SECOND(5, 5000),
+    THIRD(4, 100),
+    FOURTH(3, 5),
+    NONE(0, 0),
+    ;
+
+    companion object {
+        fun getRank(matchNum: Int): WinningPrize {
+            return values().find { it.matchNum == matchNum } ?: NONE
+        }
+    }
 }

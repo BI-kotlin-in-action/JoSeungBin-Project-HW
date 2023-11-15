@@ -1,14 +1,15 @@
-import view.buyManualLotto
-import view.manualTicket
+import view.LottoView
 
-fun createTickets(tickets: LottoTickets) {
-    val lottoNumberGenerator = LottoNumberGenerator()
-    val manualCount = buyManualLotto()
-    for (i in 0 until tickets.ticketNum) {
-        if (i < manualCount) {
-            tickets.addTicket(manualTicket())
-        } else {
-            tickets.addTicket(lottoNumberGenerator.makeLottoNumber())
+class CreateTickets {
+    fun createTickets(tickets: LottoTickets) {
+        val lottoNumberGenerator = LottoNumberGenerator()
+        val lottoView = LottoView()
+        for (i in 0 until tickets.ticketNum) {
+            if (i < tickets.manualTicketNum) {
+                tickets.addTicket(lottoView.manualTicket())
+            } else {
+                tickets.addTicket(lottoNumberGenerator.makeLottoNumber())
+            }
         }
     }
 }

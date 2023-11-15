@@ -1,10 +1,6 @@
-import view.inputCost
+import controller.LottoController
 
 fun main() {
-    val tickets = inputCost()
-    createTickets(tickets)
-    tickets.printTicket()
-
-    val winTickets = WinningTicket()
-    winTickets.calculateWinningTickets(tickets, winTickets)
+    val lottoController = LottoController()
+    lottoController.startLottoApp()
 }
