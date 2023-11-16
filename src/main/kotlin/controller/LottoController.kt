@@ -1,7 +1,8 @@
 package controller
 
-import CreateTickets
+import LottoNumberGenerator
 import LottoTickets
+import TicketGenerator
 import WinningTicket
 import view.LottoView
 
@@ -16,12 +17,13 @@ class LottoController {
 
         val lottoTickets = LottoTickets(cost / LOTTO_PRICE, manualTicketNum)
 
-        val createTickets = CreateTickets()
-        createTickets.createTickets(lottoTickets)
+        val createTickets = TicketGenerator()
+        createTickets.createTickets(lottoTickets, lottoView)
 
-        lottoTickets.printTicket()
+        lottoView.printTicket(lottoTickets.getTicket())
 
-        val winTickets = WinningTicket()
-        winTickets.calculateWinningTickets(lottoTickets, winTickets)
+        val lottoNumberGenerator = LottoNumberGenerator()
+        val winTickets = WinningTicket(lottoNumberGenerator.makeLottoNumber())
+        winTickets.calculateWinningTickets(lottoTickets, lottoView)
     }
 }

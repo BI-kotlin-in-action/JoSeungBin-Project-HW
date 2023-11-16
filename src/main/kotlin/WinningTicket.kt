@@ -1,13 +1,12 @@
-class WinningTicket() {
-    private val lottoNumberGenerator = LottoNumberGenerator()
-    private val winningTicket = lottoNumberGenerator.makeLottoNumber()
+import view.LottoView
 
-    fun calculateWinningTickets(tickets: LottoTickets, winTickets: WinningTicket) {
+class WinningTicket(private val winningTicket: Set<Int>) {
+    fun calculateWinningTickets(tickets: LottoTickets, lottoView: LottoView) {
         for (i in 0 until tickets.ticketNum) {
-            val count = tickets.ticketList.elementAt(i).intersect(winTickets.winningTicket.toSet()).count()
+            val count = tickets.getTicket().elementAt(i).intersect(winningTicket).count()
             val result = WinningPrize.getRank(count)
             if (result != WinningPrize.NONE) {
-                println("${tickets.ticketList.elementAt(i)} | ${result.prize} KW 당첨")
+                lottoView.printWinningTicket(tickets.getTicket().elementAt(i), result.prize)
             }
         }
     }

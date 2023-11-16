@@ -7,6 +7,7 @@ enum class WinningPrize(val matchNum: Int, val prize: Int) {
     ;
 
     companion object {
+        @JvmStatic
         fun getRank(matchNum: Int): WinningPrize {
             return values().find { it.matchNum == matchNum } ?: NONE
         }
