@@ -16,10 +16,13 @@ class LottoView {
         val ticket = readln().split(" ").map { it.toInt() }.sorted()
         return ticket.toSet()
     }
-    fun printTicket(ticket: MutableSet<Set<Int>>) {
+    fun printTicket(ticket: MutableList<Set<Int>>) {
         println(ticket.joinToString("\n"))
     }
     fun printWinningTicket(elementAt: Set<Int>, prize: Int) {
         println("$elementAt | $prize KW 당첨")
+    }
+    fun printTotalPrize(totalPrize: Int) {
+        println("총 당첨금액 $totalPrize KW")
     }
 }

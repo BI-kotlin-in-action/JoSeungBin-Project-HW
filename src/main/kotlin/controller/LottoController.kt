@@ -24,6 +24,7 @@ class LottoController {
 
         val lottoNumberGenerator = LottoNumberGenerator()
         val winTickets = WinningTicket(lottoNumberGenerator.makeLottoNumber())
-        winTickets.calculateWinningTickets(lottoTickets, lottoView)
+        val totalPrize = winTickets.calculateWinningTickets(lottoTickets, lottoView)
+        lottoView.printTotalPrize(totalPrize)
     }
 }
